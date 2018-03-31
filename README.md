@@ -1,6 +1,6 @@
-# ePricer skeleton app - built with Angular5 + Redux pattern + TypeScript + Webpack + Angular Material Design.
+# typeopp-learning skeleton  - built with Angular5 + Redux pattern + TypeScript + Webpack + Angular Material Design.
 by [@kiranchowdhury](https://www.facebook.com/kiran.s.chowdhury)
-The intention of this repository is to modernize the frontend devolopment of ePricer. This repository provides the skeleton for ePricer UI using [Angular5], It also uses [Angular Material Design] for various UI components, [NPM](https://github.com/npm/npm) as package manager, [TypeScript](https://github.com/Microsoft/TypeScript) and [Webpack](https://github.com/webpack/webpack) as module loader.
+This repository provides the skeleton for typeopplearning UI using [Angular5], It also uses [Angular Material Design] for various UI components, [NPM](https://github.com/npm/npm) as package manager, [TypeScript](https://github.com/Microsoft/TypeScript) and [Webpack](https://github.com/webpack/webpack) as module loader.
 
 ## Features - Technical
 - [x] TypeScript
@@ -22,7 +22,7 @@ The intention of this repository is to modernize the frontend devolopment of ePr
 - [x] Production build containing chunks
 
 ## Features - Functional
-- [x] Custom themes support (3 themes included)
+- [] Custom themes support (Comming Soon)
 - [x] Fully responsive design
 
 
@@ -48,7 +48,7 @@ Download the [Redux Devtools Extension](http://zalmoxisus.github.io/redux-devtoo
 the Visual Studio Code from here (https://code.visualstudio.com/download).
 
 5. Clone the project from git -
-git clone https://github.com/kiranchowdhury/ibm-ui.git
+git clone https://github.com/kiranchowdhury/typeopp-learning.git
 
 6. Installing the app -
 npm install
