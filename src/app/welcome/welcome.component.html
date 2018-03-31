@@ -1,0 +1,53 @@
+<!-- <div class="jumbotron jumbotron-fluid leadspace-background">
+  <h1 class="display-4 text-white">Hi Kiran Chowdhury</h1>
+</div> -->
+
+<!-- Here is the value {{(authState$ | async).displayWelcome && (authState$ | async).loading}} -->
+<div class="welcome-loading" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <p class="display-4">{{loadingMsg}}</p>
+</div>
+<div *ngIf="displayWelcome && !loading">
+  <div class="jumbotron jumbotron-fluid leadspace-background">
+    <h2 class="text-danger">{{errorMsg}}</h2>
+    <h2 class="text-white">Hi {{alias}}, welcome to ePricer.</h2>
+    <hr class="my-4">
+    <p class="text-white">Select a role and click start to begin.</p>
+    <!-- <mat-form-field>
+      <mat-select placeholder="Select role">
+        <mat-option *ngFor="let group of groups" [value]="group.code">
+          {{ group.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <!-- KIRAN -  We really do not need use a Reactive form here ..  -->
+    <form #welcomeForm="ngForm" (ngSubmit)= "onStart(welcomeForm.value)" novalidate>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-5">
+              <select [(ngModel)]="selectedGroup" name="selectedGroup" id="selectedGroup" class="form-control" placeholder="Select role" required>
+                  <option *ngFor="let group of groups"  [value]="group.id">{{ group.name }}</option>
+              </select>
+
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-sm-5">
+              <button type="submit" [disabled]="welcomeForm.invalid" class="btn btn-primary">Start</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="display-5">ePricer is a real time, self-service pricing tool available to sales reps and business partners.</p>
+        <p class="display-6">It provides a method to price quote at list price or below and supports price request approval. The goal is to provide timely responses to customer price requests.</p>
+      </div>
+      <div class="col d-none d-md-block">
+          <img [src]="landingicon" alt="">
+      </div>
+    </div>
+  </div>
+</div>

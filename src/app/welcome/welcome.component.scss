@@ -1,0 +1,17 @@
+.leadspace-background {
+  background-image: url('../../assets/lead-im1.png');
+  background-repeat: no-repeat;
+}
+
+.welcome-loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.jumbotron-fluid {
+  padding: 4rem 2rem;
+}

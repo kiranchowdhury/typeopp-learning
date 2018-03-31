@@ -1,0 +1,42 @@
+<mat-card>
+    <!-- <span routerLink="" class='login-header-text'><img [src]="logo"/>| Login</span>
+    <hr> -->
+  <mat-card-title>
+      ePricer Login
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <mat-select  placeholder='Select backend env'  formControlName='env' required>
+              <mat-option *ngFor="let env of envs" [value]="env.id">{{env.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-input-container>
+          <input type="text" matInput placeholder="Username" formControlName="username" required>
+        </mat-input-container>
+      </p>
+
+      <p>
+        <mat-input-container>
+          <input type="password" matInput placeholder="Password" formControlName="password" required>
+        </mat-input-container>
+      </p>
+
+      <!-- <p class="loginError" *ngIf="(errorMessage$ | async).length > 0">
+        {{ errorMessage$ | async }}
+      </p> -->
+      <p class="text-danger">{{ errorMessage$ | async }}</p>
+      <p class="loginButtons" *ngIf="!(loading$ | async)">
+        <button type="submit" mat-raised-button color="primary">Login</button>
+      </p>
+      <div *ngIf="(loading$ | async)">
+          <mat-spinner></mat-spinner>
+          <p class="display-4">{{loadingMsg$ | async}}</p>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
