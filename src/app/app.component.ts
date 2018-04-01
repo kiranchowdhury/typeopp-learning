@@ -18,14 +18,13 @@ import {
 import { environment as env } from '@env/environment';
 
 import { selectorSettings } from './settings';
-import { AppState } from './core/models/app-state';
 import { selectorAuth, AuthState, LoginResponseItem, LoginRequest } from './core/auth/auth.reducer';
-import { ApiInfo } from './core/models/api-info';
+
 import { Observable } from 'rxjs/Observable';
 
 
 @Component({
-  selector: 'anms-root',
+  selector: 'tl-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [routerTransition]
@@ -45,10 +44,12 @@ export class AppComponent implements OnInit, OnDestroy {
   navigation = [
     // { link: 'dashboard', label: 'Dashboard' },
     // { link: 'myquotes', label: 'My Quotes' },
-    { link: 'searchquotes', label: 'Search Quotes' },
-    {link: 'managequotes', label: 'Create Quotes'},
-    { link: 'managequotes', label: 'Manage Quotes' },
-    { link: 'assignbackup', label: 'Assign Backup' },
+    // { link: 'searchquotes', label: 'Search Quotes' },
+    // {link: 'managequotes', label: 'Create Quotes'},
+    // { link: 'managequotes', label: 'Manage Quotes' },
+    // { link: 'assignbackup', label: 'Assign Backup' },
+    {link: 'customers', label: 'Customer list'},
+    {link: 'training', label: 'Training library'}
   ];
   navigationSideMenu = [
     ...this.navigation,
@@ -59,7 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
   loginPayLoad: LoginRequest;
   constructor(
     public overlayContainer: OverlayContainer,
-    private store: Store<AppState>,
+    private store: Store<any>,
     private router: Router,
     private titleService: Title
   ) {}
@@ -81,24 +82,6 @@ export class AppComponent implements OnInit, OnDestroy {
         classList.remove(...toRemove);
         classList.add(theme);
       });
-      this.store
-      .select(selectorAuth)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((authState: AuthState) => {
-          if (authState.displayWelcome === undefined) {
-            this.displayWelcome = true;
-          } else {
-            this.displayWelcome = authState.displayWelcome;
-          }
-          this.isAuthenticate = authState.isAuthenticated;
-          console.log('authState is ', authState);
-          // if (!this.initialized) {
-          //   this.loginPayLoad = {apiid: 'getAuthGroup', methodname: 'getIBMAuthorizedGroup'};
-          //   this.initialized = true;
-          //   this.store.dispatch(new ActionAuthLogin(this.loginPayLoad));
-          // }
-      });
-
     this.router.events
       .pipe(
         takeUntil(this.unsubscribe$),
@@ -122,7 +105,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onLoginClick() {
-    this.store.dispatch(new ActionAuthLogin({apiid: 'getAuthGroup', methodname: 'getIBMAuthorizedGroup'}));
+    // this.store.dispatch(new ActionAuthLogin({apiid: 'getAuthGroup', methodname: 'getIBMAuthorizedGroup'}));
   }
 
   onLogoutClick() {
