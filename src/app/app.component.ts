@@ -66,6 +66,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.componentCssClass = 'default-theme';
+    const classList = this.overlayContainer.getContainerElement().classList;
+        const toRemove = Array.from(classList).filter((item: string) =>
+          item.includes('-theme')
+        );
+        classList.remove(...toRemove);
+        classList.add('default-theme');
   //  console.log('I am called 2nd');
   //   this.store
   //     .select(selectorSettings)
