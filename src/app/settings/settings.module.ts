@@ -11,8 +11,8 @@ import { SettingsComponent } from './settings/settings.component';
 @NgModule({
   imports: [
     SharedModule,
-    StoreModule.forFeature('settings', settingsReducer),
-    EffectsModule.forFeature([SettingsEffects])
+    // StoreModule.forFeature('settings', settingsReducer),
+    // EffectsModule.forFeature([SettingsEffects])
   ],
   declarations: [SettingsComponent]
 })

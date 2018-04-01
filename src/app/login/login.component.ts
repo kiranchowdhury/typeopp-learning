@@ -1,16 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from '../core/models/app-state';
+// import { AppState } from '../core/models/app-state';
 import { environment as env } from '@env/environment';
-import { ActionAuthSignInSuccess, ActionAuthSignIn, selectorAuth } from '../core/auth/auth.reducer';
+// import { ActionAuthSignInSuccess, ActionAuthSignIn, selectorAuth } from '../core/auth/auth.reducer';
 import { routerTransition } from '../core/animations/router.transition';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { ActionRefLoadQuoteStatusReasoncodes } from '../core/reference/refdata.reducer';
+// import { ActionRefLoadQuoteStatusReasoncodes } from '../core/reference/refdata.reducer';
 
 @Component({
-  selector: 'anms-login',
+  selector: 'tl-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
   constructor(
-        private store: Store<AppState>,
+        private store: Store<any>,
         private router: Router) { }
 
 
@@ -67,13 +67,13 @@ export class LoginComponent implements OnInit {
     this.loading$ = this.store.select(state => state.auth.loading);
     this.loadingMsg$ = this.store.select(state => state.auth.loadingMsg);
     this.displayWelcome$ = this.store.select(state => state.auth.displayWelcome);
-    this.store.dispatch(new ActionAuthSignIn(
-      {
-        username: this.form.get('username').value,
-        password: this.form.get('password').value,
-        env: this.form.get('env').value
-      }
-    ))
+    // this.store.dispatch(new ActionAuthSignIn(
+    //   {
+    //     username: this.form.get('username').value,
+    //     password: this.form.get('password').value,
+    //     env: this.form.get('env').value
+    //   }
+    // ))
   }
 
 }

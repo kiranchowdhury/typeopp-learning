@@ -45,7 +45,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     // app
     AppRoutingModule,
   ],
-  declarations: [AppComponent, WelcomeComponent, LoginComponent, HeaderComponent, SidenaveComponent],
+  declarations: [
+    AppComponent,
+   // WelcomeComponent,
+    LoginComponent,
+    HeaderComponent,
+    SidenaveComponent],
   providers: [
       MessageResoureService,
       UtilService,

@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AppContext } from '../core/model/app-context';
-import { ApiConnector } from '../core/model/api-connector';
+
 import { Store } from '@ngrx/store';
-import { AppState } from '../core/models/app-state';
-import { initialState } from '../core/auth/auth.reducer';
+
+// import { initialState } from '../core/auth/auth.reducer';
 
 @Injectable()
 export class ApiConnectorService {
-  context: AppContext;
+  context: any;
   httpOptions: any;
   // apiRequest: any;
 
-  constructor(private httpClient: HttpClient, private store: Store<AppState>) { }
+  constructor(private httpClient: HttpClient, private store: Store<any>) { }
 
 
-  getClient(url: string, reqPayLoad: any): ApiConnector {
+  getClient(url: string, reqPayLoad: any): any {
     this.store.select(state => state.auth.appContext).subscribe(context => {
       // console.log('Context', context);
-      this.context = context ? context : initialState.appContext;
+      // this.context = context ? context : initialState.appContext;
       this.httpOptions  = {
         headers: new HttpHeaders({
           'Accept':  'application/json;charset=utf-8',

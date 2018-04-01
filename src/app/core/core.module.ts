@@ -10,13 +10,10 @@ import { environment } from '@env/environment';
 import { debug } from './meta-reducers/debug.reducer';
 import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
 import { LocalStorageService } from './local-storage/local-storage.service';
-import { authReducer } from './auth/auth.reducer';
-import { AuthEffects } from './auth/auth.effects';
-import { LoginService } from './auth/login.service';
-import { ApiConnectorService } from '../common/api-connector.service';
-import { RefdataService } from './reference/refdata.service';
-import { refDataReducer } from './reference/refdata.reducer';
-import { RefDataEffects } from './reference/refdata.effects';
+// import { authReducer } from './auth/auth.reducer';
+// import { AuthEffects } from './auth/auth.effects';
+// import { LoginService } from './auth/login.service';
+// import { ApiConnectorService } from '../common/api-connector.service';
 
 
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
@@ -32,18 +29,21 @@ if (!environment.production) {
     HttpClientModule,
 
     // ngrx
-    StoreModule.forRoot(
-      {
-        auth: authReducer,
-        ref: refDataReducer
-      },
-      { metaReducers }
-    ),
-    EffectsModule.forRoot([AuthEffects, RefDataEffects]),
-    StoreDevtoolsModule.instrument()
+    // StoreModule.forRoot(
+    //   {
+    //     auth: authReducer,
+    //     ref: refDataReducer
+    //   },
+    //   { metaReducers }
+    // ),
+    // EffectsModule.forRoot([AuthEffects, RefDataEffects]),
+   // StoreDevtoolsModule.instrument()
   ],
   declarations: [],
-  providers: [LocalStorageService, LoginService, ApiConnectorService, RefdataService]
+  providers: [LocalStorageService,
+    // LoginService,
+    // ApiConnectorService
+  ]
 })
 export class CoreModule {
   constructor(

@@ -9,16 +9,16 @@ import { map } from 'rxjs/operators/map';
 import { filter } from 'rxjs/operators/filter';
 
 import {
-  ActionAuthLogout,
-  ActionAuthLogin,
+  // ActionAuthLogout,
+  // ActionAuthLogin,
   // selectorAuth,
   routerTransition,
-  Group
+  // Group
 } from '@app/core';
 import { environment as env } from '@env/environment';
 
 import { selectorSettings } from './settings';
-import { selectorAuth, AuthState, LoginResponseItem, LoginRequest } from './core/auth/auth.reducer';
+// import { selectorAuth, AuthState, LoginResponseItem, LoginRequest } from './core/auth/auth.reducer';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -57,46 +57,46 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
   displayWelcome = true;
   initialized = false;
-  loginPayLoad: LoginRequest;
+  loginPayLoad: any;
   constructor(
     public overlayContainer: OverlayContainer,
-    private store: Store<any>,
+   // private store: Store<any>,
     private router: Router,
     private titleService: Title
   ) {}
 
   ngOnInit(): void {
-   console.log('I am called 2nd');
-    this.store
-      .select(selectorSettings)
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        map(({ theme }) => theme.toLowerCase())
-      )
-      .subscribe(theme => {
-        this.componentCssClass = theme;
-        const classList = this.overlayContainer.getContainerElement().classList;
-        const toRemove = Array.from(classList).filter((item: string) =>
-          item.includes('-theme')
-        );
-        classList.remove(...toRemove);
-        classList.add(theme);
-      });
-    this.router.events
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        filter(event => event instanceof ActivationEnd)
-      )
-      .subscribe((event: ActivationEnd) => {
-        let lastChild = event.snapshot;
-        while (lastChild.children.length) {
-          lastChild = lastChild.children[0];
-        }
-        const { title } = lastChild.data;
-        this.titleService.setTitle(
-          title ? `${title} - ${env.appName}` : env.appName
-        );
-      });
+  //  console.log('I am called 2nd');
+  //   this.store
+  //     .select(selectorSettings)
+  //     .pipe(
+  //       takeUntil(this.unsubscribe$),
+  //       map(({ theme }) => theme.toLowerCase())
+  //     )
+  //     .subscribe(theme => {
+  //       this.componentCssClass = theme;
+  //       const classList = this.overlayContainer.getContainerElement().classList;
+  //       const toRemove = Array.from(classList).filter((item: string) =>
+  //         item.includes('-theme')
+  //       );
+  //       classList.remove(...toRemove);
+  //       classList.add(theme);
+  //     });
+  //   this.router.events
+  //     .pipe(
+  //       takeUntil(this.unsubscribe$),
+  //       filter(event => event instanceof ActivationEnd)
+  //     )
+  //     .subscribe((event: ActivationEnd) => {
+  //       let lastChild = event.snapshot;
+  //       while (lastChild.children.length) {
+  //         lastChild = lastChild.children[0];
+  //       }
+  //       const { title } = lastChild.data;
+  //       this.titleService.setTitle(
+  //         title ? `${title} - ${env.appName}` : env.appName
+  //       );
+  //     });
   }
 
   ngOnDestroy(): void {
@@ -112,6 +112,6 @@ export class AppComponent implements OnInit, OnDestroy {
    // alert('Logging out...');
    // this.onLoginClick();
     // this.router.navigate(['/welcome']);
-    this.store.dispatch(new ActionAuthLogout());
+    // this.store.dispatch(new ActionAuthLogout());
   }
 }

@@ -3,11 +3,11 @@
 </div> -->
 
 <!-- Here is the value {{(authState$ | async).displayWelcome && (authState$ | async).loading}} -->
-<div class="welcome-loading" *ngIf="loading">
+<div class="welcome-loading">
     <mat-spinner></mat-spinner>
     <p class="display-4">{{loadingMsg}}</p>
 </div>
-<div *ngIf="displayWelcome && !loading">
+<div>
   <div class="jumbotron jumbotron-fluid leadspace-background">
     <h2 class="text-danger">{{errorMsg}}</h2>
     <h2 class="text-white">Hi {{alias}}, welcome to ePricer.</h2>
@@ -21,7 +21,7 @@
       </mat-select>
     </mat-form-field> -->
     <!-- KIRAN -  We really do not need use a Reactive form here ..  -->
-    <form #welcomeForm="ngForm" (ngSubmit)= "onStart(welcomeForm.value)" novalidate>
+    <!-- <form #welcomeForm="ngForm" (ngSubmit)= "onStart(welcomeForm.value)" novalidate>
       <div class="form-group">
         <div class="row">
           <div class="col-sm-5">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-    </form>
+    </form> -->
   </div>
   <div class="container">
     <div class="row">
