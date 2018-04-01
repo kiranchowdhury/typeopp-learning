@@ -1,26 +1,26 @@
-// import { Action } from '@ngrx/store';
-// import { HttpErrorResponse } from '@angular/common/http';
+import { Action } from '@ngrx/store';
+import { HttpErrorResponse } from '@angular/common/http';
 // // import { ApiInfo } from '@app/core/models/api-info';
 // import { LocalStorageService } from '@app/core';
 
 
 
 
-// export const AUTH_KEY = 'AUTH';
+export const AUTH_KEY = 'AUTH';
 
-// export enum AuthActionTypes {
-//   AUTH_SIGNIN_IN = '[Auth] Sign In',
-//   AUTH_SIGN_IN_SUCCESS = '[Auth] Sign In Success',
-//   AUTH_SIGN_IN_FAIL = '[Auth] Sign In Fail',
-//   LOGIN = '[Auth] Login',
-//   LOGIN_SUCCESS = '[Auth] Login Success',
-//   LOGIN_UNAUTHORIZED_ERROR= '[Auth] Login Unauthorized',
-//   LOGIN_ERROR= '[Auth] Login Error',
-//   LOGIN_AUTHORIZE = '[Auth] Authorize',
-//   LOGIN_AUTHORIZE_SUCCESS = '[Auth] Authorize Success',
-//   LOGIN_AUTHORIZE_ERROR = '[Auth] Authorize Error',
-//   LOGOUT = '[Auth] Logout'
-// }
+export enum AuthActionTypes {
+  AUTH_SIGNIN_IN = '[Auth] Sign In',
+  AUTH_SIGN_IN_SUCCESS = '[Auth] Sign In Success',
+  AUTH_SIGN_IN_FAIL = '[Auth] Sign In Fail',
+  LOGIN = '[Auth] Login',
+  LOGIN_SUCCESS = '[Auth] Login Success',
+  LOGIN_UNAUTHORIZED_ERROR= '[Auth] Login Unauthorized',
+  LOGIN_ERROR= '[Auth] Login Error',
+  LOGIN_AUTHORIZE = '[Auth] Authorize',
+  LOGIN_AUTHORIZE_SUCCESS = '[Auth] Authorize Success',
+  LOGIN_AUTHORIZE_ERROR = '[Auth] Authorize Error',
+  LOGOUT = '[Auth] Logout'
+}
 
 // // export class ActionAuthSignIn implements Action {
 // //   readonly type = AuthActionTypes.AUTH_SIGNIN_IN;

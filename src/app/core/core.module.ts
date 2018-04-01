@@ -10,6 +10,8 @@ import { environment } from '@env/environment';
 import { debug } from './meta-reducers/debug.reducer';
 import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
 import { LocalStorageService } from './local-storage/local-storage.service';
+import { LoginService } from './login/login.service';
+import { authReducer } from '@app/core/login/login.reducer';
 // import { authReducer } from './auth/auth.reducer';
 // import { AuthEffects } from './auth/auth.effects';
 // import { LoginService } from './auth/login.service';
@@ -29,18 +31,17 @@ if (!environment.production) {
     HttpClientModule,
 
     // ngrx
-    // StoreModule.forRoot(
-    //   {
-    //     auth: authReducer,
-    //     ref: refDataReducer
-    //   },
-    //   { metaReducers }
-    // ),
-    // EffectsModule.forRoot([AuthEffects, RefDataEffects]),
-   // StoreDevtoolsModule.instrument()
+    StoreModule.forRoot(
+      {
+        auth: authReducer
+      },
+      { metaReducers }
+    ),
+    EffectsModule.forRoot([]),
+   StoreDevtoolsModule.instrument()
   ],
   declarations: [],
-  providers: [LocalStorageService,
+  providers: [LocalStorageService, LoginService,
     // LoginService,
     // ApiConnectorService
   ]
