@@ -3,8 +3,15 @@
     <mat-toolbar-row>
       <span class="lead">Typeopplearning.no</span>
       <span fxFlex></span>
-      <span><button mat-button color="primary">SIGN UP</button></span>
-      <span><button mat-button color="primary">LOG IN</button></span>
+      <div *ngIf="!loggedIn">
+        <span><button mat-button color="primary" (click)="onSignupClick()">SIGN UP</button></span>
+        <span><button mat-button color="primary" (click)="onLoginClick()">LOG IN</button></span>
+    </div>
+    <div *ngIf="loggedIn">
+      <span><button mat-button color="primary">
+        <mat-icon>account_circle</mat-icon>
+      </button></span>
+    </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

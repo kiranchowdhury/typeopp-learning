@@ -22,6 +22,8 @@ import { selectorSettings } from './settings';
 
 import { Observable } from 'rxjs/Observable';
 import { AppState } from '@app/models/state/app-state';
+import { selectorAuth } from '@app/core/authentication/login.reducer';
+import { AuthState } from '@app/models/state/auth-state';
 
 
 @Component({
@@ -35,20 +37,13 @@ export class AppComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   @HostBinding('class') componentCssClass;
-
+  loggedin = false;
   isProd = env.production;
   envName = env.envName;
   version = env.versions.app;
   year = new Date().getFullYear();
   logo = require('../assets/logo_white_small.png');
-  isGroupSelected = false;
   navigation = [
-    // { link: 'dashboard', label: 'Dashboard' },
-    // { link: 'myquotes', label: 'My Quotes' },
-    // { link: 'searchquotes', label: 'Search Quotes' },
-    // {link: 'managequotes', label: 'Create Quotes'},
-    // { link: 'managequotes', label: 'Manage Quotes' },
-    // { link: 'assignbackup', label: 'Assign Backup' },
     {link: 'customers', label: 'Customer list'},
     {link: 'training', label: 'Training library'}
   ];
@@ -56,25 +51,14 @@ export class AppComponent implements OnInit, OnDestroy {
     ...this.navigation,
     { link: 'settings', label: 'Settings' }
   ];
-  displayWelcome = true;
-  initialized = false;
-  loginPayLoad: any;
   constructor(
-    public overlayContainer: OverlayContainer,
+   public overlayContainer: OverlayContainer,
    private store: Store<AppState>,
-    private router: Router,
-    private titleService: Title
+   private router: Router,
+   private titleService: Title
   ) {}
 
   ngOnInit(): void {
-    // this.componentCssClass = 'default-theme';
-    // const classList = this.overlayContainer.getContainerElement().classList;
-    //     const toRemove = Array.from(classList).filter((item: string) =>
-    //       item.includes('-theme')
-    //     );
-    //     classList.remove(...toRemove);
-    //     classList.add('default-theme');
-  //  console.log('I am called 2nd');
     this.store
       .select(selectorSettings)
       .pipe(
@@ -90,23 +74,38 @@ export class AppComponent implements OnInit, OnDestroy {
         classList.remove(...toRemove);
         classList.add(theme);
       });
-    // this.router.events
-    //   .pipe(
-    //     takeUntil(this.unsubscribe$),
-    //     filter(event => event instanceof ActivationEnd)
-    //   )
-    //   .subscribe((event: ActivationEnd) => {
-    //     let lastChild = event.snapshot;
-    //     while (lastChild.children.length) {
-    //       lastChild = lastChild.children[0];
-    //     }
-    //     const { title } = lastChild.data;
-    //     this.titleService.setTitle(
-    //       title ? `${title} - ${env.appName}` : env.appName
-    //     );
-    //   });
+    this.router.events
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        filter(event => event instanceof ActivationEnd)
+      )
+      .subscribe((event: ActivationEnd) => {
+        let lastChild = event.snapshot;
+        while (lastChild.children.length) {
+          lastChild = lastChild.children[0];
+        }
+        const { title } = lastChild.data;
+        this.titleService.setTitle(
+          title ? `${title} - ${env.appName}` : env.appName
+        );
+      });
+      this.store.select(selectorAuth)
+      .pipe(
+        takeUntil(this.unsubscribe$),
+      )
+      .subscribe((authState: AuthState) => {
+        this.loggedin = authState.loggedIn;
+      })
   }
 
+  handleSignIn() {
+    console.log('navigatin form');
+    this.loggedin = true;
+  }
+
+  handleSignUp() {
+    console.log('navigating to signup form');
+  }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
