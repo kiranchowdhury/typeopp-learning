@@ -1,8 +1,7 @@
 <div fxLayout="column" fxFlex>
   <tl-header [loggedIn]="loggedin"
-   (loginEvent)="handleSignIn()" 
-   (signupEvent)="handleSignUp()"></tl-header>
-
-   <div *ngIf="loggedin">Signed in</div>
-   <div *ngIf="!loggedin">Yet to Signed in</div>
+    (loginEvent)="openSignInDialog()" 
+    (signupEvent)="handleSignUp()">
+  </tl-header>
+  <tl-sidenave *ngIf="loggedin" [navitems]="navigation"></tl-sidenave>
 </div>

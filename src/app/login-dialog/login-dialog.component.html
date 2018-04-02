@@ -1,0 +1,14 @@
+<h1 mat-dialog-title style="text-align: center">Sign In <hr></h1>
+<div mat-dialog-content>
+  
+  <mat-form-field>
+    <input type="text" matInput placeholder="User name.." required>
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password.." required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial color="primary">Login</button>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>

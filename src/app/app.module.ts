@@ -23,6 +23,8 @@ import { UtilService } from './common/util.service';
 import { HeaderComponent } from './layouts/header/header.component';
 import { SidenaveComponent } from './layouts/sidenave/sidenave.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 
 
 
@@ -45,12 +47,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     // app
     AppRoutingModule,
   ],
+  entryComponents: [AppComponent, LoginDialogComponent, SignupDialogComponent],
   declarations: [
     AppComponent,
    // WelcomeComponent,
     LoginComponent,
     HeaderComponent,
-    SidenaveComponent],
+    SidenaveComponent,
+    LoginDialogComponent,
+    SignupDialogComponent],
   providers: [
       MessageResoureService,
       UtilService,

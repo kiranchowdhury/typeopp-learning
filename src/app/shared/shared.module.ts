@@ -22,6 +22,7 @@ import { BigInputComponent } from './big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action.component';
 import { QuoteStatusCodeToLabelPipe } from './pipes/quote-status-code-to-label.pipe';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material';
 
 export const PIPES = [QuoteStatusCodeToLabelPipe];
 
@@ -45,6 +46,7 @@ export const PIPES = [QuoteStatusCodeToLabelPipe];
     MatIconModule,
     MatTooltipModule,
     MatGridListModule,
+    MatDialogModule,
     FlexLayoutModule,
   ],
   declarations: [BigInputComponent, BigInputActionComponent, PIPES],
@@ -67,6 +69,7 @@ export const PIPES = [QuoteStatusCodeToLabelPipe];
     MatIconModule,
     MatTooltipModule,
     MatGridListModule,
+    MatDialogModule,
 
     BigInputComponent,
     BigInputActionComponent,
