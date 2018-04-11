@@ -43,6 +43,9 @@ $ag-icons-path: "~ag-grid/src/styles/icons/";
 
 @import '~ag-grid/src/styles/ag-theme-material';
 
+@import './styles-custom/styles-mat-dialog.scss';
+@import './styles-custom/styles-btn.scss';
+
 // @import 'app/static/about/about.component.scss-theme';
 // @import 'app/examples/todos/todos.component.scss-theme';
 // @import 'app/examples/stock-market/stock-market.component.scss-theme';

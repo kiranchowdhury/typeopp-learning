@@ -105,8 +105,9 @@ export class AppComponent implements OnInit, OnDestroy {
     // TODO - Remove that line
     this.loggedin = true;
     const dialogRef = this.dialog.open(LoginDialogComponent, {
-        width: '400px',
-        height: '300px',
+        // width: '426px',
+        // height: '449px',
+        panelClass: 'tl-login-dialog',
         data: {title: 'Sign in'}
     })
   }
