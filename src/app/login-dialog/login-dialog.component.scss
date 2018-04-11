@@ -60,5 +60,23 @@
     .button-area {
         margin: 50px 23px 50px 23px;
         cursor: pointer;
+
+        button {
+            .btn-label {
+                margin: 15px 159px 14px 157px;
+                width: 64px;
+                height: 31px;
+                opacity: 0.96;
+                font-family: Helvetica;
+                font-size: 26px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: center;
+                color: #ffffff;
+            }
+        }
     }
  }
