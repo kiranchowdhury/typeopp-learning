@@ -44,10 +44,10 @@ export class AppComponent implements OnInit, OnDestroy {
   envName = env.envName;
   version = env.versions.app;
   year = new Date().getFullYear();
-  logo = require('../assets/logo_white_small.png');
+  logo = require('../assets/Logo_typeopplæring.png');
   navigation = [
-    {link: 'customers', label: 'Customer list'},
-    {link: 'training', label: 'Training library'}
+    {link: 'customers', label: 'Customer list', icon: 'supervisor_account'},
+    {link: 'training', label: 'Training library', icon: 'list'}
   ];
   navigationSideMenu = [
     ...this.navigation,
@@ -102,6 +102,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   openSignInDialog(): void {
+    // TODO - Remove that line
+    this.loggedin = true;
     const dialogRef = this.dialog.open(LoginDialogComponent, {
         width: '400px',
         height: '300px',

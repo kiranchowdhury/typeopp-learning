@@ -9,6 +9,8 @@ export class HeaderComponent implements OnInit {
   @Input() loggedIn;
   @Output() loginEvent = new EventEmitter();
   @Output() signupEvent = new EventEmitter();
+
+  logo = require('../../../assets/Logo_typeopplæring.png');
   constructor() { }
 
   ngOnInit() {

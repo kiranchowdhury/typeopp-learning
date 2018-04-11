@@ -1,7 +1,9 @@
-<div fxLayout="column" fxFlex>
-  <tl-header [loggedIn]="loggedin"
-    (loginEvent)="openSignInDialog()" 
-    (signupEvent)="handleSignUp()">
-  </tl-header>
-  <tl-sidenave *ngIf="loggedin" [navitems]="navigation"></tl-sidenave>
+<div class="app-container">
+  <tl-header [loggedIn]="loggedin" (loginEvent)="openSignInDialog()"></tl-header>
+  <div class="main">
+    <tl-sidenave *ngIf="loggedin" [navitems]="navigation"></tl-sidenave>
+    <div class="content">
+      <!-- Router Outlet will come here -->
+    </div>
+  </div>
 </div>
