@@ -8,8 +8,7 @@ export class MessageResoureService {
 
   getMessage(code: string): string {
     switch (code) {
-      case MessageCodes.EP_USER_NOT_FOUND:
-      case MessageCodes.EP_USER_UNAUTHORIZED:
+      case MessageCodes.TL_USER_NOT_FOUND:
         return 'You are not authorized to use ePricer application';
       default:
         return 'Technical Error: Please contact ePricer administrator';

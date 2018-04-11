@@ -10,8 +10,11 @@ import { environment } from '@env/environment';
 import { debug } from './meta-reducers/debug.reducer';
 import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
 import { LocalStorageService } from './local-storage/local-storage.service';
-import { LoginService } from './authentication/login.service';
-import { authReducer } from '@app/core/authentication/login.reducer';
+import { authReducer } from '@app/core/auth/auth.reducer';
+import { LoginService } from '@app/core/auth/login.service';
+import { AuthEffects } from '@app/core/auth/auth.effects';
+import { ApiConnectorService } from '@app/common/api-connector.service';
+
 
 
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
@@ -33,13 +36,14 @@ if (!environment.production) {
       },
       { metaReducers }
     ),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
    StoreDevtoolsModule.instrument()
   ],
   declarations: [],
-  providers: [LocalStorageService, LoginService,
-    // LoginService,
-    // ApiConnectorService
+  providers: [
+    LocalStorageService,
+    LoginService,
+    ApiConnectorService
   ]
 })
 export class CoreModule {

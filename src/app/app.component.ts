@@ -22,10 +22,11 @@ import { selectorSettings } from './settings';
 
 import { Observable } from 'rxjs/Observable';
 import { AppState } from '@app/models/state/app-state';
-import { selectorAuth } from '@app/core/authentication/login.reducer';
+
 import { AuthState } from '@app/models/state/auth-state';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { LoginDialogComponent } from '@app/login-dialog/login-dialog.component';
+import { selectorAuth } from '@app/core/auth/auth.reducer';
 
 
 @Component({
@@ -102,8 +103,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   openSignInDialog(): void {
-    // TODO - Remove that line
-    this.loggedin = true;
+
     const dialogRef = this.dialog.open(LoginDialogComponent, {
         // width: '426px',
         // height: '449px',

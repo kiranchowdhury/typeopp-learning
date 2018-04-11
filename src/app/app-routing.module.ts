@@ -6,14 +6,19 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'welcome',
-  //   component: WelcomeComponent,
-  //   // canActivate: [LoginGuard],
-  //   data: {
-  //     title: 'Welcome'
-  //   }
-  // },
+  {
+    path: '',
+    redirectTo: 'welcome',
+    pathMatch: 'full'
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent,
+    // canActivate: [LoginGuard],
+    data: {
+      title: 'Welcome'
+    }
+  },
   // {
   //   path: 'settings',
   //   component: SettingsComponent,

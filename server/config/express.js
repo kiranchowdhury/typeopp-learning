@@ -22,33 +22,17 @@ module.exports = function(app, config) {
   // app.post('/api/login', restcontroller.login);
   app.post('/api/login', function(req, res) {
     var payload = req.body;
-    var backendServer = payload.env;
+    var backendServer = payload.env?  payload.env : 'tl_dev';
     var email = payload.username;
     var pwd = payload.password;
-    var apiUrl = conf[backendServer].apiUrl;
-    var certPath = conf[backendServer].certPath;
-    console.log('Cert path', certPath);
-    var cert = fs.readFileSync(certPath);
-    superagent.get(apiUrl+'/api/rest/get?apiid=getAuthGroup&methodname=getIBMAuthorizedGroup')
-    .auth(email, pwd)
-    .cert(cert)
-    .end((error, api_resp) => {
-      // console.log('LOGIN STATUS ', api_res.status);
-      if(error) {
-        res.send({status: "0", message: 'Login Error - Invalid Credential', items: [{isAuthenticated: false}]});
-      } else if(api_resp.status === 200){
-        var secretKey = conf[backendServer].secret;
-
-        var token = generateToken(email, pwd, secretKey);
-        res.send({status: "1", message: 'SUCCESS', token: token, email: email});
-      } else if(api_resp.status === 401) {
-        res.send({status: "0", message: 'HTTP_RESPONSE_CODE_UNAUTHORIZED', items: [{isAuthenticated: false}]});
-      } else if(api_resp.status === 400) {
-        res.send({status: "0", message: 'HTTP_RESPONSE_CODE_NOT_FOUND', items: [{isAuthenticated: false}]});
-      } else if(api_resp.status === 500) {
-        res.send({status: "0", message: 'HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR', items: [{isAuthenticated: false}]});
-      }
-    });
+   // var apiUrl = conf[backendServer].apiUrl;
+   // var certPath = conf[backendServer].certPath;
+    // console.log('Cert path', certPath);
+   // var cert = fs.readFileSync(certPath);
+    var secretKey = '46443c94-16f3-400d-98cb-b46547193155';   // conf[backendServer].secret;
+    //TODO : Implement Login using passport or auth2
+    var token = generateToken(email, pwd, secretKey);
+    res.send({success: true, token: token, email: email, role: 'admin'});
   });
 
   generateToken = function(userid, key, secretKey) {
