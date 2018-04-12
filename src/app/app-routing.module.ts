@@ -6,6 +6,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { CustomerContainerComponent } from '@app/customer/customer-container/customer-container.component';
 import { HowtoComponent } from '@app/howto/howto.component';
+import { FaqComponent } from '@app/faq/faq.component';
+import { InvoiceListComponent } from '@app/invoice-list/invoice-list.component';
+import { ProfilePageComponent } from '@app/profile-page/profile-page.component';
+import { CertificatesComponent } from '@app/certificates/certificates.component';
 
 const routes: Routes = [
   {
@@ -22,6 +26,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'certificates',
+    component: CertificatesComponent,
+    data: {
+      title: 'Certificates'
+    }
+  },
+  {
     path: 'customers',
     // component: CustomerContainerComponent,
     // data: {
@@ -30,11 +41,44 @@ const routes: Routes = [
     loadChildren: './customer/customer.module#CustomerModule'
   },
   {
+    path: 'faq',
+    component: FaqComponent,
+    data: {
+      title: 'FAQ'
+    }
+  },
+  {
     path: 'howto',
     component: HowtoComponent,
     data: {
       title: 'How to'
     }
+  },
+  {
+    path: 'invoices',
+    component: InvoiceListComponent,
+    data: {
+      title: 'Invoices'
+    }
+  },
+  {
+    path: 'profiles',
+    component: ProfilePageComponent,
+    data: {
+      title: 'Profiles'
+    }
+  },
+  {
+    path: 'subscriptions',
+    loadChildren: './subscriptions/subscriptions.module#SubscriptionsModule'
+  },
+  {
+    path: 'training',
+    loadChildren: './training/training.module#TrainingModule'
+  },
+  {
+    path: 'users',
+    loadChildren: './user-list/user-list.module#UserListModule'
   }
   // {
   //   path: 'settings',
