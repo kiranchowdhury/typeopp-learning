@@ -58,12 +58,12 @@ export class AuthEffects {
     console.log(data);
     return data;
   }
-//   @Effect({dispatch: false})
-//   signInSuccess(): Observable<any> {
-//     return this.actions$
-//       .ofType(AuthActionTypes.AUTH_SIGN_IN_SUCCESS)
-//       .pipe(
-//         tap((action) => this.router.navigate(['/welcome']))
-//       )
-//   }
+  @Effect({dispatch: false})
+  signInSuccess(): Observable<any> {
+    return this.actions$
+      .ofType(AuthActionTypes.AUTH_SIGN_IN_SUCCESS)
+      .pipe(
+        tap((action) => this.router.navigate(['/customers']))
+      )
+  }
 }

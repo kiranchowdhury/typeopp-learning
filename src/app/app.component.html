@@ -2,8 +2,9 @@
   <tl-header [loggedIn]="loggedin" (loginEvent)="openSignInDialog()"></tl-header>
   <div class="main">
     <tl-sidenave *ngIf="loggedin" [navitems]="navigation"></tl-sidenave>
-    <div class="content">
-      <!-- Router Outlet will come here -->
+    <div class="content"
+         [@routerTransition]="o.isActivated && o.activatedRoute.routeConfig.path">
+      <router-outlet #o="outlet"></router-outlet>
     </div>
   </div>
 </div>
