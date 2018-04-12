@@ -1,3 +1,82 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  width: 1280px;
+  .bkg-img-01 {
+    height: 590px;
+    object-fit: contain;
+    background-image: url('../../assets/bkg-image-01.png');
+    background-repeat: no-repeat;
+    .get-certified-text {
+      margin: 310px 545px 0px 181px;
+      width: 598px;
+      height: 58px;
+      font-family: Helvetica;
+      font-size: 48px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .you-can-do-the-train {
+      margin: 0px 0px 0px 181px;
+      width: 640px;
+      height: 56px;
+      font-family: SFProDisplay;
+      font-size: 20px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }            
+  }
+  .icon-container {
+    display: flex;
+    margin: 40px 0px 40px 0px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+  }
+  .icon-text-continer {
+    display: flex;
+    height: 32px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    text-align: center;
+    color: #333f52;    
+    .learn-from-the-exper {
+      width: 204px;
+    }
+    .learn-on-the-go {
+      width: 140px;
+    }
+    .accredited-curriculum {
+      width: 198px;
+    }
+  }
+}
+
+.spacer {
+  flex-grow: 2;
+}
+
+
 .leadspace-background {
   background-image: url('../../assets/lead-im1.png');
   background-repeat: no-repeat;

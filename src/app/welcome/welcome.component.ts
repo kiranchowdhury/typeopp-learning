@@ -16,13 +16,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class WelcomeComponent implements OnInit {
 
+  ico1 = require('../../assets/ic-01.png');
+  ico2 = require('../../assets/ic-02.png');
+  ico3 = require('../../assets/ic-02.png');
+
   constructor(private router: Router,
               private store: Store<any>,
               private msgResource: MessageResoureService) {}
-
-
-
-
   ngOnInit() {}
 
 }
