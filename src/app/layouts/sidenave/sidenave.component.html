@@ -1,6 +1,6 @@
 <nav>
-  <div class="nav-item" *ngFor="let item of navitems">
-      
+  <div class="nav-item" *ngFor="let item of navitems" 
+  [routerLink]="[item.link]" routerLinkActive="active">
         <mat-icon class="icon">{{item.icon}}</mat-icon>
         <div class="label">{{item.label}}</div>
       

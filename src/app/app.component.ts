@@ -48,7 +48,14 @@ export class AppComponent implements OnInit, OnDestroy {
   logo = require('../assets/Logo_typeopplæring.png');
   navigation = [
     {link: 'customers', label: 'Customer list', icon: 'supervisor_account'},
-    {link: 'training', label: 'Training library', icon: 'list'}
+    {link: 'training', label: 'Training library', icon: 'list'},
+    {link: 'howto', label: 'How to', icon: 'message'},
+    {link: 'faq', label: 'FAQ', icon: 'help_outline'},
+    {link: 'profiles', label: 'Profile page', icon: 'person_outline'},
+    {link: 'subscriptions', label: 'Subscriptions', icon: 'subscriptions'},
+    {link: 'users', label: 'User list', icon: 'account_box'},
+    {link: 'invoices', label: 'Invoices', icon: 'monetization_on'},
+    {link: 'certificates', label: 'Certificates', icon: 'settings'}
   ];
   navigationSideMenu = [
     ...this.navigation,
