@@ -1,32 +1,25 @@
 @import 'styles-variables';
 
-.header-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  .app-header {
-    box-sizing: border-box;
-    height: 70px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-grow: 1;
-    img {
-      margin: 10px;
-      width: 80px;
-      height: 50px
-    }
-    .branding {
-      cursor: pointer;
-      padding-right: 15px;
-    }
-    .spacer {
-      // flex: 0 0 auto;
-      // margin-left: auto;
-      flex-grow: 2;
-    }   
-  }
-    
+.leftHeader{
+float: left;
+padding:24px 0 24px 13.8%;
+}
+.leftHeader img{
+padding-left: 13.8%;
+}
+.rightHeader{
+float: right;
+padding:24px 13.6% 24px 0;
+}
+.rightHeader input{
+font-weight: bold;
+line-height: 1;
+text-align: left;
+color: #333333;
+border:none;
+background: none;
+outline: none;
+cursor: pointer;
 }
 
 

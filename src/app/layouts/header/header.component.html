@@ -1,18 +1,33 @@
-<div class="header-container">
+<!-- <div class="header-container">
   <div class="app-header">
     <span class="branding spacer d-none d-md-inline">
       <img [src]="logo"/>
       <!-- IBM | ePricer -->
-    </span>
+    <!-- </span>
     <span class="spacer"></span>
     <button *ngIf="!loggedIn" mat-button (click)="onSignupClick()">
       SIGN UP
-    </button> 
+    </button>
     <button *ngIf="!loggedIn" mat-button (click)="onLoginClick()">
       LOG IN
     </button>
     <button *ngIf="loggedIn" mat-button>
           <mat-icon>account_circle</mat-icon>
-    </button>    
+    </button>
   </div>
-</div>
+</div> -->
+
+<header>
+  <nav>
+     <div class="leftHeader">
+         <img src="../../../assets/images/logo.png" alt="logo">
+     </div>
+     <div class="rightHeader">
+         <input type="submit" name="register" value="SIGN UP" *ngIf="!loggedIn" mat-button (click)="onSignupClick()">
+         <input type="submit" name="login" value="LOG IN" *ngIf="!loggedIn" mat-button (click)="onLoginClick()">
+         <button *ngIf="loggedIn" mat-button>
+          <mat-icon>account_circle</mat-icon>
+    </button>
+     </div>
+  </nav>
+</header>

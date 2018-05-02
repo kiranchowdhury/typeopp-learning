@@ -14,10 +14,13 @@
 }
 
 @media screen and (max-width: 500px) {
-    
+
   .main {
       flex-direction: column;
   }
-  
+
 }
 
+tl-header{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
